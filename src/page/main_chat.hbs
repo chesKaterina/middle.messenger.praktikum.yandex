@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<div class="chat flex"> 
+  <div class="left_box flex"> 
+    <div class="profile">  <!-- Профиль -->
+    <!-- {{> link text="Профиль" href='/'}} -->
+    </div>
+    <div class="serch">{{> input placeholder='Поиск...'}}</div> <!-- Поиск -->
+    <div class="chat_list flex">
+      <ul class="chat_block">
+        <li class="chat_item">
+          <div class="left_part_chats">
+            <img src="" alt="Аватар"> 
+            <h3 class="name"> название чата</h3>
+            <p> {{text_message}}</p>
+            </div>
+            <div class="right_part_chats">
+                <div class="timer">00:00</div>
+                <div class="counter">2</div>
+            </div>
+        </li>
+        <li class="chat_item"></li>
+        <li class="chat_item"></li>
+        <li class="chat_item"></li>
+        <li class="chat_item"></li>
+        <li class="chat_item"></li>
+        <li class="chat_item"></li>
+        <li class="chat_item"></li>
+        <li class="chat_item"></li>
+        <li class="chat_item"></li>
+      </ul>
+
+    </div>
+  </div>
+
+
+
+  <div class="right_box"> 
+    <div class="chat_top">
+      <div class="chat__avatar">
+        <img src="" alt="Аватар">
+      </div>
+      <div class="user">
+          <p class="user__name">Имя пользователя</p>
+      </div>
+      <div class="settings">
+        <span>...</span>
+      </div>
+  </div>
+  <div class="chat_main">
+      <div class="companion_message ">
+        <p>companion_message</p>
+      </div>
+      <div class="my-message ">
+        <p>my-message</p>
+      </div>
+  </div>
+  <div class="chat__bottom">
+    <div class="add">
+      <span> <!--иконка клип-борд--></span>
+    </div>
+
+    <div class="chat__btn">
+      {{> input placeholder="введите сообщение"}}
+    </div>
+    <div class="chat__submit">
+      {{> input type="submit"}}
+    </div>
+
+  </div>
+</div>

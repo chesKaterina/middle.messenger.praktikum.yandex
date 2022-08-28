@@ -1,0 +1,65 @@
+---
+name: avas
+email: avas@yoo.com 
+login: spark_avas
+first_name: Альберт
+second_name: Васельков
+phone: +79931234567
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat messenger</title>
+    <link rel="stylesheet" href="../user_settings/settings_stile.css">
+  </head>
+
+<div class="card">
+    <div class="card__title">
+
+        <form class="form" action="/">
+            <div>
+                <div class="avatar"><img class="user_avatar" src="/static/img/ivan.jpg" alt="аватар"></div>
+                <p class="profile">Профиль</p>
+                <div class="profile_form">
+                    <span>Имя в чате</span>
+                    <span class="right_box disabled_text">{{name}}</span>
+                </div>
+                <div class="profile_form">
+                    <span>Почта</span>
+                    <span class="right_box disabled_text">{{email}}</span>
+                </div>
+                <div class="profile_form">
+                    <span>Логин</span>
+                    <span class="right_box disabled_text">{{login}}</span>
+                </div>
+                <div class="profile_form">
+                    <span>Имя</span>
+                    <span class="right_box disabled_text">{{first_name}}</span>
+                </div>
+
+                <div class="profile_form">
+                    <span>Фамилия</span>
+                    <span class="right_box disabled_text">{{second_name}}</span>
+                </div>
+                <div class="profile_form">
+                    <span>Телефон</span>
+                    <span class="right_box disabled_text">{{phone}}</span>
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <a href='/'>Изменить данные </a>
+            <a href='/'>Выйти </a>
+
+        </form>
+    </div>
+</div>
+</html>
