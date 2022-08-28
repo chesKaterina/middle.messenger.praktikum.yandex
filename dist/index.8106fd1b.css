@@ -1,0 +1,94 @@
+.flex {
+  display: flex;
+}
+
+.reg {
+  text-align: center;
+  color: #2e2e2e;
+  margin: 0 0 55px;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+body {
+  background-color: #fff;
+  font-family: Roboto, sans-serif;
+  font-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.form {
+  max-width: 340px;
+  max-height: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  margin: 20px auto;
+  padding: 50px 22px 22px 35px;
+  box-shadow: 0 0 40px #0000001a;
+}
+
+.input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #b1b1b1;
+  outline: none;
+  margin-bottom: 16px;
+  padding: 8px 8px 7px 0;
+  display: block;
+}
+
+.descr {
+  color: gray;
+  font-family: Roboto, sans-serif;
+  font-size: 10px;
+}
+
+.btn {
+  width: 100%;
+  cursor: pointer;
+  color: #fff;
+  background-color: #2e64ee;
+  border: 0;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 8px 75px;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+}
+
+.btn_reg {
+  padding-top: 32px;
+}
+
+.btn:hover {
+  background-color: #1d45ad;
+}
+
+.enter {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.enter_link {
+  color: #2e64ee;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=index.8106fd1b.css.map */
