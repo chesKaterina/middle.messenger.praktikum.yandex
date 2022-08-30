@@ -26,3 +26,5 @@ Netlify
 `npm run build`
 `npm run start`
 
+## Сссылка на Netlify ##
+https://tranquil-moonbeam-2f8b85.netlify.app/
