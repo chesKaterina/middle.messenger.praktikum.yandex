@@ -1,3 +1,6 @@
 node_modules/
 build/
-.parcel-cach/
+.parcel-cache/
+dist/
+old_css/
+

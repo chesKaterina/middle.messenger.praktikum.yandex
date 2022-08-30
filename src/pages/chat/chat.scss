@@ -1,0 +1,182 @@
+
+@use "../../main.scss" as *;
+
+.flex {
+    display: flex;
+}
+
+.left_box {
+    max-width: 310px;
+    height: 0;
+    background: #FBFBFB;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.right_box {
+    position: absolute;
+    /* max-width: 970px; */
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: $size-light-text;
+    line-height: 150%;
+    color: #999999;
+    border-left: 1px solid $light-line-color;
+}
+
+/* Профиль */
+.profile_settings {
+    margin: 0;
+    padding: 0;
+    padding: 19px 10px 19px 236px;
+    max-width: max-content;
+}
+
+.profile {
+    text-align: center;
+    font-family: $main-font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: $size-light-text;
+    line-height: 150%;
+    color: #999999;
+
+}
+
+.polygon {
+
+    size: 8px 4px;
+}
+
+/* форма поиск */
+.search {
+    margin: 0;
+    padding: 0;
+
+    margin-bottom: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.form {
+    margin: 0;
+    padding: 0;
+
+}
+
+.input_search {
+    display: block;
+    width: 100%;
+    padding-top: 9px;
+    padding-bottom: 5px;
+    margin-bottom: 14px;
+    text-align: left;
+    background: $light-line-color;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-image: url(/static/icon/search.svg);
+    background-repeat: no-repeat;
+    background-position: left center;
+
+}
+
+::placeholder {
+    padding-left: 20px;
+}
+
+.chat_item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-top: 1px solid $light-line-color;
+}
+
+.chat_block {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.avatar_pic {
+    width: 47px;
+    height: 47px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user_avatar {
+    object-fit: cover;
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.left_part_chats {
+    max-width: 250px;
+}
+
+.descrip {
+    font-family: $main-font;
+    font-style: normal;
+    line-height: 150%;
+}
+
+.name {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: $size-main-text;
+    color: $main-text-color;
+}
+
+.text_descr {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: $size-light-text;
+    color: #999999;
+}
+
+.right_part_chats {
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.timer {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 13px;
+    text-align: right;
+    font-weight: 400;
+    font-size: 9px;
+    color: #999999;
+
+}
+
+.counter {
+    margin: 0;
+    padding: 0;
+    display: block;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    max-width: 20px;
+    max-height: 20px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 11px;
+    border-radius: 50%;
+    background-color: $main-blue-color;
+    color: $white-color;
+}

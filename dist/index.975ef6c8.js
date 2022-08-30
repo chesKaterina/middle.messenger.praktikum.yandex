@@ -537,3 +537,4 @@ console.log("Привет, Мир!");
 },{}]},["ShInH","8lqZg"], "8lqZg", "parcelRequire9341")
 
 //# sourceMappingURL=index.975ef6c8.js.map
+
