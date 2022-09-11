@@ -9,20 +9,20 @@
   </head>
 
 <body class="flex">
-  
+
   <form class="form" action="" method="post">
     <h1 class="reg">Вход</h1>
-    <label class="descr"> Логин <input class="input_reg" type="text"></label>
-    <label class="descr">Пароль <input class="input_reg" type="password"></label>
-    
+    <label class="descr"> Логин {{{input_login}}}</label>
+    <label class="descr">Пароль {{{input_password}}}</label>
+
     <div class="btn_reg">
-        <button class="btn" type="submit">Авторизоваться</button>
+        {{{button}}}
       </div>
     <div class="enter">
-      <a href=""> <span class="enter_link"> Нет аккаунта?</span></a>
+      <a href="../chat/chat.hbs"> <span class="enter_link"> Нет аккаунта?</span></a>
     </div>
   </form>
-  
+
 
 </body>
 </html>
