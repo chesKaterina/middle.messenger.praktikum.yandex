@@ -1,5 +1,5 @@
 
-@use "../../main.scss" as *;
+// @use "../../main.scss" as *;
 
 .flex {
     display: flex;
@@ -14,7 +14,7 @@
 
 }
 
-.right_box {
+.right_box_chat {
     position: absolute;
     /* max-width: 970px; */
     top: 50%;
@@ -38,6 +38,7 @@
     padding: 0;
     padding: 19px 10px 19px 236px;
     max-width: max-content;
+    display: flex;
 }
 
 .profile {

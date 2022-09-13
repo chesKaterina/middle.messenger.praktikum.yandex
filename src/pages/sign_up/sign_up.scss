@@ -1,5 +1,6 @@
 
-@use "../../main.scss" as *;
+// @use "../../main.scss" as *;
+@import '../../components/button/button';
 
 .flex {
   display: flex;
@@ -56,7 +57,7 @@ body {
 
 }
 
-@import '../../components/button/button';
+
 // .btn {
 //   display: block;
 //   width: 100%;

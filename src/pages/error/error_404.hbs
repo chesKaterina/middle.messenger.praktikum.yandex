@@ -1,7 +1,3 @@
----
-error_num: 404
-text_error: Страница не найдена 
----
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,13 +11,12 @@ text_error: Страница не найдена
 <body>
     <div class="box_center">
         <div>
-            <h1 class="name_error fonts">{{error_num}}</h1>
-            <p class="text_error fonts">{{text_error}}</p>
+            <h1 class="name_error fonts">404</h1>
+            <p class="text_error fonts">Страница не найдена</p>
         </div>
         <div>
-            <a href="" >
-                <span class="link_back fonts">Назад к чатам</span>
-            </a>
+          {{{link_back}}}
+
         </div>
     </div>
 

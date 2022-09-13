@@ -1,58 +1,53 @@
-import Block from "../../utils/Block";
+import Block from '../../utils/Block';
+import template from './chat.hbs';
+import { Button } from '../../components/button';
+import { Input } from '../../components/input';
+import { Link} from '../../components/link';
+import { ChatContact } from '../../components/chat';
 
-export default class ChatPage extends Block {
-  static componentName = 'ChatPage';
+interface ChatProps {
 
-  protected render (): string {
-    return `
-    <html lang="en">
+}
 
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Chat messenger</title>
-      <link rel="stylesheet" href="./chat.scss">
-    </head>
+export class ChatPage extends Block {
+  constructor(props: ChatProps) {
+    super('div', props);
+  }
 
-    <body>
-      <div class="chat flex">
-        <div class="left_box flex">
-          <div class="profile_settings">
-          {{{ Link
-            text="Профиль"
-            to=""
-            className="profile"
-          }}}
-          </div>
+  init() {
+    this.children.inputSearch = new Input({
+      events: {
+        click: () => console.log('clicked'),
+      },
+      className: 'input_search',
+      type: 'text',
+      placeholder: 'Поиск',
+      name: 'search'
+    })
 
-          {{{ Search }}}
+    this.children.chatItem = new ChatContact({
+      events: {
+        click: () => console.log('clicked'),
+      },
+      className: 'chat_item flex',
+      chatName: 'Alex',
+      userAvatar: '../../../static/img/jo.jpg',
+      textMsg: 'Hi! Whatsapp?',
+      lastMsgTime: '17:10',
+      msgCount: 1
 
-          <div class="chat_list">
-            <ul class="chat_block">
-              {{{ ChatContact
-              	user_name="Андрей"
-                user_avatar="../../../static/img/ivan.jpg"
-                text_msg="lorem"
-                last_msg_time="11:50"
-                msg_count=1
-              }}}
-            </ul>
+    })
+    this.children.linkToProfile = new Link({
+      events: {
+        click: () => console.log('go to profile')
+      },
+      text: 'Профиль',
+      to: '/profile'
+    })
+  }
 
-          </div>
-        </div>
-
-
-
-        <div class="right_box">
-          <p>Выберите чат чтобы отправить сообщение</p>
-
-        </div>
-      </div>
-    </body>
-
-    </html>
-
-    `;
+  render() {
+    return this.compile(template, this.props);
   }
 }
+

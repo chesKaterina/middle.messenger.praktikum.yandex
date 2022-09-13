@@ -6,30 +6,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chat messenger</title>
-  <link rel="stylesheet" href="./sign_up.scss">
+  <link rel="stylesheet" href="../../main.css">
 </head>
 
 
 <body class="flex">
 
-  <form class="form" action="" method="post">
+  <div class="form">
     <h1 class="reg">Регистрация</h1>
-    <label class="descr"> Почта {{{input_email}}} {{!--<input class="input_reg" type="email">--}}</label>
-    <label class="descr"> Логин {{{input_login}}}{{!--<input class="input_reg" type="text">--}}</label>
-    <label class="descr"> Имя {{{input_name}}}{{!--<input class="input_reg" type="text">--}}</label>
-    <label class="descr"> Фамилия {{{input_surname}}} {{!--<input class="input_reg" type="text">--}}</label>
-    <label class="descr"> Телефон {{{input_phone}}}{{!--<input class="input_reg" type="tel">--}}</label>
-    <label class="descr">Пароль {{{input_password}}}{{!--<input class="input_reg" type="password">--}}</label>
-    <label class="descr">Пароль (ещё раз) {{{input_password}}}{{!--<input class="input_reg" type="password">--}}</label>
+    {{{input_email}}}
+    {{{input_login}}}
+    {{{input_name}}}
+    {{{input_surname}}}
+    {{{input_phone}}}
+    {{{input_password}}}
+    {{{input_second_password}}}
 
     <div class="btn_reg">
       {{{button}}}
-      {{!-- <button class="btn" type="submit">Зарегистрироваться</button> --}}
     </div>
     <div class="enter">
-      <a href="../chat/chat.hbs"> <span class="enter_link"> Войти</span></a>
+      {{{enter_link}}}
     </div>
-  </form>
+  </div>
 
 
 </body>

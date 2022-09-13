@@ -11,7 +11,7 @@
   justify-content: space-between;
 }
 
-.right_box {
+.right_box_chat {
   position: absolute;
   /* max-width: 970px; */
   top: 50%;
@@ -34,6 +34,7 @@
   padding: 0;
   padding: 19px 10px 19px 236px;
   max-width: max-content;
+  display: flex;
 }
 
 .profile {
@@ -245,7 +246,6 @@ a {
 .user_avat {
   object-fit: cover;
   width: 100%;
-  /* height: 100%; */
   margin: 0 auto;
 }
 
@@ -256,6 +256,40 @@ a {
 .disabled_text {
   color: #808080;
   font-weight: 500;
+}
+
+.bottom_link {
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 8px 75px;
+  margin-bottom: 15px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #2E64EE;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.btn_reg {
+  padding-top: 32px;
+}
+
+.btn:hover {
+  background-color: #1D45AD;
 }
 
 .flex {
@@ -306,29 +340,6 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 10px;
   color: #808080;
-}
-
-.btn {
-  display: block;
-  width: 100%;
-  padding: 8px 75px;
-  margin-bottom: 15px;
-  border: 0;
-  border-radius: 8px;
-  background-color: #2E64EE;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: #fff;
-}
-
-.btn_reg {
-  padding-top: 32px;
-}
-
-.btn:hover {
-  background-color: #1D45AD;
 }
 
 .enter {
