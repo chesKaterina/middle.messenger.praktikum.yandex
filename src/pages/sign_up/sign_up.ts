@@ -2,8 +2,8 @@ import Block from '../../utils/Block';
 import template from './sign_up.hbs';
 import { Button } from '../../components/button';
 import { Input } from '../../components/input';
-import { Link} from '../../components/link';
-import { isDelError, isErrorMes, validate, validForm } from '../../utils/validator';
+import { Link } from '../../components/link';
+import { removeError, setErrorMes, validate, validForm } from '../../utils/validator';
 import { InputBlock } from '../../components/inputBlock';
 
 interface SignUpProps {
@@ -20,8 +20,8 @@ export class SignUpPage extends Block {
       label: 'Зарегистрироваться',
       events: {
         click: () => {
-          if (validForm('form-registr')) {window.location.href='/chat'}
-      },
+          if (validForm('.form')) { window.location.href = '/chat' }
+        },
       },
       className: 'btn',
       type: 'submit',
@@ -38,7 +38,7 @@ export class SignUpPage extends Block {
       text: 'Почта',
       name: 'email'
     })
-//Login
+    //Login
     this.children.input_login = new InputBlock({
       events: {
         focus: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
@@ -49,7 +49,7 @@ export class SignUpPage extends Block {
       name: 'login',
       text: 'Логин'
     })
-//First name
+    //First name
     this.children.input_name = new InputBlock({
       events: {
         focus: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
@@ -85,26 +85,26 @@ export class SignUpPage extends Block {
       text: 'Телефон'
     })
 
-//Password section
+    //Password section
     this.children.input_password = new InputBlock({
       events: {
         focus: (e: { target: HTMLInputElement; }) => {
-            validate(e.target.name, e.target.value)
-            const passInput = document.querySelector('input[name=password2]') as HTMLInputElement;
-            if (passInput.value !== (e.target as HTMLInputElement).value) {
-                isErrorMes("password2", 'Пароли должны совпадать')
-            } else {
-                isDelError("password2")
-            }
+          validate(e.target.name, e.target.value)
+          const passInput = document.querySelector('input[name=password2]') as HTMLInputElement;
+          if (passInput.value !== (e.target as HTMLInputElement).value) {
+            setErrorMes("password2", 'Пароли должны совпадать')
+          } else {
+            removeError("password2")
+          }
         },
         blur: (e: { target: HTMLInputElement; }) => {
-            validate(e.target.name, e.target.value)
-            const passInput = document.querySelector('input[name=password2]') as HTMLInputElement;
-            if (passInput.value !== (e.target as HTMLInputElement).value) {
-                isErrorMes("password2", 'Пароли должны совпадать')
-            } else {
-                isDelError("password2")
-            }
+          validate(e.target.name, e.target.value)
+          const passInput = document.querySelector('input[name=password2]') as HTMLInputElement;
+          if (passInput.value !== (e.target as HTMLInputElement).value) {
+            setErrorMes("password2", 'Пароли должны совпадать')
+          } else {
+            removeError("password2")
+          }
         }
       },
       className: 'input_reg',
@@ -120,22 +120,22 @@ export class SignUpPage extends Block {
       text: "Пароль (ещё раз)",
       className: 'input_reg',
       events: {
-          focus: (e: { target: HTMLInputElement; }) => {
-              const passInput = document.querySelector('input[name=password]') as HTMLInputElement;
-              if (passInput.value !== (e.target as HTMLInputElement).value) {
-                  isErrorMes(e.target.name, 'Пароли должны совпадать')
-              } else {
-                  isDelError(e.target.name)
-              }
-          },
-          blur: (e: { target: HTMLInputElement; }) => {
-              const passInput = document.querySelector('input[name=password]') as HTMLInputElement;
-              if (passInput.value !== (e.target as HTMLInputElement).value) {
-                  isErrorMes(e.target.name, 'Пароли должны совпадать')
-              } else {
-                  isDelError(e.target.name)
-              }
+        focus: (e: { target: HTMLInputElement; }) => {
+          const passInput = document.querySelector('input[name=password]') as HTMLInputElement;
+          if (passInput.value !== (e.target as HTMLInputElement).value) {
+            setErrorMes(e.target.name, 'Пароли должны совпадать')
+          } else {
+            removeError(e.target.name)
           }
+        },
+        blur: (e: { target: HTMLInputElement; }) => {
+          const passInput = document.querySelector('input[name=password]') as HTMLInputElement;
+          if (passInput.value !== (e.target as HTMLInputElement).value) {
+            setErrorMes(e.target.name, 'Пароли должны совпадать')
+          } else {
+            removeError(e.target.name)
+          }
+        }
 
       }
     })

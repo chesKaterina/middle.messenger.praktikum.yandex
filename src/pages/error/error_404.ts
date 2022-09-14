@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './error_404.hbs';
-import { Link} from '../../components/link';
+import { Link } from '../../components/link';
 
 interface Error404Props {
 

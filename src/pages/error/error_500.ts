@@ -1,6 +1,6 @@
 import Block from '../../utils/Block';
 import template from './error_500.hbs';
-import { Link} from '../../components/link';
+import { Link } from '../../components/link';
 
 interface Error500Props {
 

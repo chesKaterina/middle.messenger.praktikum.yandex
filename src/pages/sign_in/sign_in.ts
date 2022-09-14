@@ -1,7 +1,7 @@
 import Block from '../../utils/Block';
 import template from './sign_in.hbs';
 import { Button } from '../../components/button';
-import { Link} from '../../components/link';
+import { Link } from '../../components/link';
 import { validate, validForm } from '../../utils/validator';
 import { InputBlock } from '../../components/inputBlock';
 
@@ -18,7 +18,7 @@ export class SignInPage extends Block {
     this.children.button = new Button({
       label: 'Авторизоваться',
       events: {
-        click: () => {if (validForm('form')){window.location.href='/chat'}}
+        click: () => { if (validForm('.form')) { window.location.href = '/chat' } }
       },
       className: 'btn',
     });

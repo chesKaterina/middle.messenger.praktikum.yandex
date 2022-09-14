@@ -2,7 +2,7 @@ import Block from '../../utils/Block';
 import template from './chat.hbs';
 import { Button } from '../../components/button';
 import { Input } from '../../components/input';
-import { Link} from '../../components/link';
+import { Link } from '../../components/link';
 import { ChatContact } from '../../components/chat';
 
 interface ChatProps {
