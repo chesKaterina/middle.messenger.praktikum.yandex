@@ -6,8 +6,13 @@ $main-text-color: #2E2E2E;
 $main-blue-color: #2E64EE;
 $white-color: #fff;
 $light-line-color: #EAEAEA;
+$error-color: #EC3F3F;
 
-// @import './pages/chat/chat';
-// @import './pages/error/error';
-// @import './pages/profile/profile';
-// @import './pages/sign_up/sign_up';
+.error {
+  color: $error-color
+}
+
+@import './pages/chat/chat';
+@import './pages/error/error';
+@import './pages/profile/profile';
+@import './pages/sign_up/sign_up';

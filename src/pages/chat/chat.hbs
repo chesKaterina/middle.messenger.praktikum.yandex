@@ -1,9 +1,3 @@
----
-avatar: jo.jpg
-text_msg: Hi! Whatsapp?
-last_msg_time: 00:00
-msg_count: 2
----
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,48 +6,24 @@ msg_count: 2
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chat messenger</title>
-  <link rel="stylesheet" href="./chat.scss">
+  <link rel="stylesheet" href="../../main.css">
 </head>
 
 <body>
   <div class="chat flex">
     <div class="left_box flex">
-      <div class="profile_settings"> <span class="profile">Профиль</span>
+      <div class="profile_settings profile">
+        {{{linkToProfile}}}
         <img class="polygon" src="../../../static/icon/Polygon 1.svg">
       </div>
       <div class="search">
-        <form class="form" action="" method="post">
-          <input class="input_search" type="text" placeholder="Поиск">
+        <form action="" method="post">
+          {{{inputSearch}}}
         </form>
       </div> <!-- Поиск -->
       <div class="chat_list">
         <ul class="chat_block">
-          <li class="chat_item flex">
-            <div class="left_part_chats flex">
-              <div class="avatar_pic"><img class="user_avatar" src="../../../static/img/{{avatar}}" alt="Аватар"> </div>
-              <div>
-                <h3 class="name descrip"> название чата</h3>
-                <p class="text_descr descrip">{{text_msg}}</p>
-              </div>
-            </div>
-            <div class="right_part_chats flex">
-              <div class="timer descrip">{{last_msg_time}}</div>
-              <div class="counter descrip">{{msg_count}}</div>
-            </div>
-          </li>
-          <li class="chat_item flex">
-            <div class="left_part_chats flex">
-              <div class="avatar_pic"><img class="user_avatar" src="../../../static/img/{{avatar}}" alt="Аватар"> </div>
-              <div>
-                <h3 class="name descrip"> название чата</h3>
-                <p class="text_descr descrip"> {{text_msg}}</p>
-              </div>
-            </div>
-            <div class="right_part_chats flex">
-              <div class="timer descrip">{{last_msg_time}}</div>
-              <div class="counter descrip">{{msg_count}}</div>
-            </div>
-          </li>
+          {{{chatItem}}}
         </ul>
 
       </div>
@@ -61,7 +31,7 @@ msg_count: 2
 
 
 
-    <div class="right_box">
+    <div class="right_box_chat">
       <p>Выберите чат чтобы отправить сообщение</p>
 
     </div>
