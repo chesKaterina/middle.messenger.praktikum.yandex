@@ -41,8 +41,7 @@ export function validate(nameInput: string, valueInput: string) {
 }
 
 export function setErrorMes(name: string, error: string) {
-  let idNameByClassName = name.substring(1, name.length)
-  let span = document.getElementById('error_' + idNameByClassName);
+  let span = document.getElementById('error_' + name);
   if (span) {
     span.classList.add("error")
     span.innerHTML = error;
@@ -80,7 +79,8 @@ export function validForm(selectorForm: string) {
     });
     return true;
   } else {
-    setErrorMes(selectorForm, "Все поля должны быть заполнены")
+    let formClass = selectorForm.substring(1, selectorForm.length)
+    setErrorMes(formClass, "Все поля должны быть заполнены")
     return false;
   }
 }

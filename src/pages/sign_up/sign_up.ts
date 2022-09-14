@@ -24,14 +24,14 @@ export class SignUpPage extends Block {
         },
       },
       className: 'btn',
-      type: 'submit',
+      type: 'button',
     });
 
     //Email
     this.children.input_email = new InputBlock({
       events: {
-        focus: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-        blur: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
+        focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
+        focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
       },
       className: 'input_reg',
       type: 'email',
@@ -41,8 +41,8 @@ export class SignUpPage extends Block {
     //Login
     this.children.input_login = new InputBlock({
       events: {
-        focus: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-        blur: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
+        focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
+        focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
       },
       className: 'input_reg',
       type: 'text',
@@ -52,8 +52,8 @@ export class SignUpPage extends Block {
     //First name
     this.children.input_name = new InputBlock({
       events: {
-        focus: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-        blur: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
+        focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
+        focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
       },
       className: 'input_reg',
       type: 'text',
@@ -64,8 +64,8 @@ export class SignUpPage extends Block {
     //Second name
     this.children.input_surname = new InputBlock({
       events: {
-        focus: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-        blur: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
+        focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
+        focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
       },
       className: 'input_reg',
       type: 'text',
@@ -76,8 +76,8 @@ export class SignUpPage extends Block {
     //Phone
     this.children.input_phone = new InputBlock({
       events: {
-        focus: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-        blur: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
+        focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
+        focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
       },
       className: 'input_reg',
       type: 'tel',
@@ -88,7 +88,7 @@ export class SignUpPage extends Block {
     //Password section
     this.children.input_password = new InputBlock({
       events: {
-        focus: (e: { target: HTMLInputElement; }) => {
+        focusout: (e: { target: HTMLInputElement; }) => {
           validate(e.target.name, e.target.value)
           const passInput = document.querySelector('input[name=password2]') as HTMLInputElement;
           if (passInput.value !== (e.target as HTMLInputElement).value) {
@@ -97,7 +97,7 @@ export class SignUpPage extends Block {
             removeError("password2")
           }
         },
-        blur: (e: { target: HTMLInputElement; }) => {
+        focusin: (e: { target: HTMLInputElement; }) => {
           validate(e.target.name, e.target.value)
           const passInput = document.querySelector('input[name=password2]') as HTMLInputElement;
           if (passInput.value !== (e.target as HTMLInputElement).value) {
@@ -120,7 +120,7 @@ export class SignUpPage extends Block {
       text: "Пароль (ещё раз)",
       className: 'input_reg',
       events: {
-        focus: (e: { target: HTMLInputElement; }) => {
+        focusout: (e: { target: HTMLInputElement; }) => {
           const passInput = document.querySelector('input[name=password]') as HTMLInputElement;
           if (passInput.value !== (e.target as HTMLInputElement).value) {
             setErrorMes(e.target.name, 'Пароли должны совпадать')
@@ -128,7 +128,7 @@ export class SignUpPage extends Block {
             removeError(e.target.name)
           }
         },
-        blur: (e: { target: HTMLInputElement; }) => {
+        focusin: (e: { target: HTMLInputElement; }) => {
           const passInput = document.querySelector('input[name=password]') as HTMLInputElement;
           if (passInput.value !== (e.target as HTMLInputElement).value) {
             setErrorMes(e.target.name, 'Пароли должны совпадать')

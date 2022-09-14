@@ -8,8 +8,8 @@ type InputBlockProps = {
   type: string;
   className: string;
   events?: {
-    blur?: (e: { target: HTMLInputElement; }) => void;
-    focus?: (e: { target: HTMLInputElement; }) => void;
+    focusin?: (e: { target: HTMLInputElement; }) => void;
+    focusout?: (e: { target: HTMLInputElement; }) => void;
   }
 }
 

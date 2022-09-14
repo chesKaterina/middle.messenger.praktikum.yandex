@@ -4,8 +4,8 @@ import template from './input.hbs';
 interface InputProps {
   events?: {
     click?: ()=> void;
-    blur?: (e: { target: HTMLInputElement; }) => void;
-    focus?: (e: { target: HTMLInputElement; }) => void;
+    focusin?: (e: { target: HTMLInputElement; }) => void;
+    focusout?: (e: { target: HTMLInputElement; }) => void;
   };
   className?: string;
   type?: string;

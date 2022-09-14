@@ -21,12 +21,13 @@ export class SignInPage extends Block {
         click: () => { if (validForm('.form')) { window.location.href = '/chat' } }
       },
       className: 'btn',
+      type: 'button'
     });
 
     this.children.input_login = new InputBlock({
       events: {
-        focus: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-        blur: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
+        focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
+        focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
       },
       className: 'input_reg',
       type: 'text',
@@ -38,8 +39,8 @@ export class SignInPage extends Block {
       className: 'input_reg',
       type: 'password',
       events: {
-        focus: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
-        blur: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
+        focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
+        focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
       },
       name: 'password',
       text: 'Пароль'
