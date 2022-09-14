@@ -37,6 +37,7 @@ export function validate(nameInput: string, valueInput: string) {
     setErrorMes(nameInput, validationRules[nameInput].error);
   } else {
     removeError(nameInput);
+    removeError('form')
   }
 }
 
