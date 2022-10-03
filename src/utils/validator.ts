@@ -57,8 +57,8 @@ export function removeError(name: string) {
 }
 export function validForm(selectorForm: string) {
   const form = document.querySelector<HTMLFormElement>(selectorForm);
-  const spans = form.querySelectorAll('span');
-  const inputs = form.querySelectorAll('input');
+  const spans = form!.querySelectorAll('span');
+  const inputs = form!.querySelectorAll('input');
   let errorsCounter = 0;
   let arrForm: any = {};
   spans.forEach((span) => {
@@ -78,10 +78,21 @@ export function validForm(selectorForm: string) {
     inputs.forEach((input) => {
       arrForm[input.name] = input.value
     });
-    return true;
+    return arrForm;
   } else {
     let formClass = selectorForm.substring(1, selectorForm.length)
     setErrorMes(formClass, "Все поля должны быть заполнены")
-    return false;
+    return arrForm;
+  }
+}
+
+export function isValidForm(formSelector: string){
+  const validFieldsObject = validForm(formSelector)
+  if (Object.keys(validFieldsObject).length > 0){
+    console.log(validFieldsObject)
+    return true
+  } else {
+    console.log(validFieldsObject)
+    return false
   }
 }

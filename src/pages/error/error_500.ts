@@ -2,13 +2,9 @@ import Block from '../../utils/Block';
 import template from './error_500.hbs';
 import { Link } from '../../components/link';
 
-interface Error500Props {
-
-}
-
 export class Error500Page extends Block {
-  constructor(props: Error500Props) {
-    super('div', props);
+  constructor() {
+    super({});
   }
 
   init() {
@@ -24,7 +20,7 @@ export class Error500Page extends Block {
   }
 
   render() {
-    return this.compile(template, this.props);
+    return this.compile(template, { ...this.props });
   }
 }
 

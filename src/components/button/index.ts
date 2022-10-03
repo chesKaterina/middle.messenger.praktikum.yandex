@@ -5,7 +5,7 @@ import * as style from '../../main.css';
 interface ButtonProps {
   label: string;
   events: {
-    click: () => void;
+    click: (e: Event) => void;
   };
   className?: string;
   type?: string;
@@ -13,10 +13,10 @@ interface ButtonProps {
 
 export class Button extends Block {
   constructor(props: ButtonProps) {
-    super('div', props);
+    super(props);
   }
 
   render() {
-    return this.compile(template, this.props);
+    return this.compile(template, {...this.props});
   }
 }

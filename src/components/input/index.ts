@@ -11,14 +11,15 @@ interface InputProps {
   type?: string;
   placeholder?: string;
   name: string;
+  value?: string;
 }
 
 export class Input extends Block {
   constructor(props: InputProps) {
-    super('div', props);
+    super(props);
   }
 
   render() {
-    return this.compile(template, this.props);
+    return this.compile(template, {...this.props});
   }
 }
