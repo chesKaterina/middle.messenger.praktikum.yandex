@@ -27,7 +27,7 @@ export class AuthController {
 
       await this.fetchUser();
 
-      router.go('/settings');
+      router.go('/chat');
     } catch (e: any) {
       alert(e.reason);
       console.error(e);

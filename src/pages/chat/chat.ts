@@ -7,6 +7,7 @@ import { ChatContact } from '../../components/chat';
 import { Message } from '../../components/chat/msg/index';
 import ChatController from '../../controllers/ChatController';
 import { withStore } from '../../utils/Store';
+import { ChatTitle } from '../../components/chat/chatTitle';
 
 export type ChatInfo = {
   last_message: {
@@ -25,7 +26,7 @@ type MessageData = {
 
 class ChatPage extends Block {
 
-  init() {
+  protected initChildren() {
     this.children.chatList = [];
     if (this.props?.allChats !== undefined) {
       Object.values(this.props.allChats).map((chats: any) => {
@@ -51,7 +52,11 @@ class ChatPage extends Block {
     }
 
     if (this.props?.token !== undefined) {
-      this.children.chatName = this.props?.nameChat
+      this.children.header = new ChatTitle({
+        chatId: this.props.chatId,
+        chatName: this.props.nameChat,
+        userAvatar: this.props.user.avatar
+      });
     }
 
     this.children.messages = [];

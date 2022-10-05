@@ -1,11 +1,13 @@
 import Block from '../../utils/Block';
 import template from './profile.hbs';
 import { Link } from '../../components/link';
-// import { User} from "../../components/user";
 import AuthController from '../../controllers/AuthController';
-import { UserController } from '../../controllers/UserController';
+import UserController from '../../controllers/UserController';
 import { withStore } from '../../utils/Store';
 import { Input } from '../../components/input';
+import Router from '../../utils/Router';
+import { Button } from '../../components/button';
+import { validate, validForm, isValidForm} from '../../utils/validator';
 
 export type User = {
   email: string;
@@ -17,25 +19,28 @@ export type User = {
 }
 
 class ProfilePage extends Block {
-  // constructor() {
-  //   super({});
-  // }
 
   init() {
     this.children.change_data = new Link({
       events: {
-        click: () => console.log('clicked'),
+        click: () => {
+          const allInputs = document.querySelectorAll('input')
+          allInputs.forEach((inp) => inp.classList.remove('disabled_input')
+          )
+        }
       },
       to: '',
       text: 'Изменить данные',
+      className: 'color_link',
     });
 
     this.children.change_password = new Link({
       events: {
-        click: () => console.log('clicked'),
+        click: () => {Router.go('/profile/change-pass')},
       },
       to: '',
       text: 'Изменить пароль',
+      className: 'color_link',
     });
 
     this.children.out = new Link({
@@ -55,11 +60,7 @@ class ProfilePage extends Block {
       },
 
       to: '/chat',
-      text: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-left"
-      viewBox="0 0 28 28">
-      <path fill-rule="evenodd"
-        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
-    </svg>`,
+      text: '<',
     })
 
     this.children.userName = new Input({
@@ -70,6 +71,10 @@ class ProfilePage extends Block {
       })
 
     this.children.userEmail = new Input({
+      events: {
+        focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
+        focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
+      },
       className: 'disabled_input right_box disabled_text',
       name: 'email',
       value: this.props?.email
@@ -94,18 +99,42 @@ class ProfilePage extends Block {
     })
 
     this.children.userPhone = new Input({
+      events: {
+        focusout: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value),
+        focusin: (e: { target: HTMLInputElement; }) => validate(e.target.name, e.target.value)
+      },
       className: 'disabled_input right_box disabled_text',
       name: 'phone',
       value: this.props?.phone
     })
 
+    this.children.saveChange = new Button({
+      label: 'Сохранить',
+      events: {
+        click: () => {
+          if (isValidForm('.form_pass')) { this.onSubmit()}
+        }
+      },
+      className: 'btn',
+      type: 'button'
+    });
+
   }
+
+
+  onSubmit() {
+    const data = validForm('.form');
+    UserController.editUser(data as User);
+
+  }
+
 
   render() {
     return this.compile(template, { ...this.props });
   }
 
 }
+
 
 const withUser = withStore((state) => ({ ...state.user }))
 export const UserProfilePage = withUser(ProfilePage);

@@ -1,13 +1,12 @@
 import { EventBus } from "./EventBus";
-import { nanoid } from 'nanoid';
-import { isEqual } from './helpers';
+import { nanoid } from "nanoid";
 
 class Block<Props extends Record<string, any> = any> {
   static EVENTS = {
     INIT: "init",
     FLOW_CDM: "flow:component-did-mount",
     FLOW_CDU: "flow:component-did-update",
-    FLOW_RENDER: "flow:render"
+    FLOW_RENDER: "flow:render",
   } as const;
 
   public id = nanoid(6);
@@ -22,7 +21,7 @@ class Block<Props extends Record<string, any> = any> {
    *
    * @returns {void}
    */
-   public constructor(propsWithChildren: Props) {
+  public constructor(propsWithChildren: Props) {
     const eventBus = new EventBus();
 
     const { props, children } = this._getChildrenAndProps(propsWithChildren);
@@ -37,7 +36,10 @@ class Block<Props extends Record<string, any> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  private _getChildrenAndProps(childrenAndProps: Props): { props: Props, children: Record<string, Block>} {
+  private _getChildrenAndProps(childrenAndProps: Props): {
+    props: Props;
+    children: Record<string, Block>;
+  } {
     const props: Record<string, any> = {};
     const children: Record<string, any> = {};
 
@@ -53,10 +55,11 @@ class Block<Props extends Record<string, any> = any> {
   }
 
   private _addEvents() {
-    const {events = {}} = this.props as Props & { events: Record<string, () => void> };
-    Object.keys(events).forEach(eventName => {
+    const { events = {} } = this.props as Props & {
+      events: Record<string, () => void>;
+    };
+    Object.keys(events).forEach((eventName) => {
       this._element?.addEventListener(eventName, events[eventName]);
-
     });
   }
 
@@ -68,7 +71,6 @@ class Block<Props extends Record<string, any> = any> {
   }
 
   private _init() {
-
     this.init();
 
     this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
@@ -85,7 +87,9 @@ class Block<Props extends Record<string, any> = any> {
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
 
-    Object.values(this.children).forEach(child => child.dispatchComponentDidMount());
+    Object.values(this.children).forEach((child) =>
+      child.dispatchComponentDidMount()
+    );
   }
 
   private _componentDidUpdate(oldProps: Props, newProps: Props) {
@@ -131,22 +135,24 @@ class Block<Props extends Record<string, any> = any> {
     return new DocumentFragment();
   }
 
-
   protected compile(template: (context: any) => string, context: any) {
-
     const contextAndStubs = { ...context };
 
-    Object.entries(this.children).forEach(([key, child]: [string, Block<Props>]) => {
-      if (Array.isArray(child)) {
-        contextAndStubs[key] = child.map((item) => `<div data-id="${item.id}"></div>`);
-        return;
+    Object.entries(this.children).forEach(
+      ([key, child]: [string, Block<Props>]) => {
+        if (Array.isArray(child)) {
+          contextAndStubs[key] = child.map(
+            (item) => `<div data-id="${item.id}"></div>`
+          );
+          return;
+        }
+        contextAndStubs[key] = `<div data-id="${child.id}"></div>`;
       }
-      contextAndStubs[key] = `<div data-id="${child.id}"></div>`;
-    });
+    );
 
-    const temp = document.createElement('template');
+    const temp = document.createElement("template");
 
-    temp.innerHTML = template(contextAndStubs).split(',').join('');
+    temp.innerHTML = template(contextAndStubs).split(",").join("");
 
     Object.values(this.children).forEach((child: Block<Props>) => {
       if (Array.isArray(child)) {
@@ -158,7 +164,9 @@ class Block<Props extends Record<string, any> = any> {
         });
         return;
       }
-      const stub = temp.content.querySelector(`[data-id="${child.id}"]`) as HTMLElement;
+      const stub = temp.content.querySelector(
+        `[data-id="${child.id}"]`
+      ) as HTMLElement;
       if (!stub) return;
       stub.replaceWith(child.getContent()!);
     });
@@ -171,22 +179,20 @@ class Block<Props extends Record<string, any> = any> {
   }
 
   private _makePropsProxy(props: any) {
-    const self = this;
-
     return new Proxy(props, {
-      get(target, prop) {
+      get: (target, prop) => {
         const value = target[prop];
         return typeof value === "function" ? value.bind(target) : value;
       },
-      set(target: any, prop, value) {
+      set: (target, prop, value) => {
         target[prop] = value;
 
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
+        this.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
         return true;
       },
-      deleteProperty() {
+      deleteProperty: () => {
         throw new Error("Нет доступа");
-      }
+      },
     });
   }
 

@@ -2,17 +2,12 @@
   <div class="return">
     <div class="return_img">
       {{{back}}}
-      {{!-- <a><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-arrow-left"
-        viewBox="0 0 28 28">
-        <path fill-rule="evenodd"
-          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
-      </svg></a> --}}
     </div>
   </div>
   <div class="card">
     <div class="card__title">
 
-      <form action="/">
+      <form class="form_pass" action="/">
         <div class="prof">
           <div class="avatar">
             <img class="user_avat" src="../../../static/img/ivan.jpg" alt="аватар">
@@ -26,6 +21,7 @@
           <div class="profile_form">
             <span>Почта</span>
             {{{userEmail}}}
+            <span class="error_pass" id="error_email"></span>
           </div>
 
           <div class="profile_form">
@@ -46,7 +42,11 @@
           <div class="profile_form">
             <span>Телефон</span>
             {{{userPhone}}}
+            <span class="error_pass" id="error_phone"></span>
           </div>
+        </div>
+        <div class="btn_pass">
+          {{{saveChange}}}
         </div>
         <div class="bottom_link flex">
           <div>

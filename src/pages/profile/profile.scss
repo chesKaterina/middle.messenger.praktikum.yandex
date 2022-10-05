@@ -11,9 +11,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-right: 1px solid #E0DFDF;
+
 }
 .return_img {
-  width: 28px;
+ font-size:20px;
 
 }
 
@@ -21,6 +23,7 @@
   border-bottom: 2px solid #B1B1B1;
   padding: 5px;
   max-width: 50%;
+  margin-bottom: 8px;
   margin-left: auto;
   margin-right: auto;
   font-size: $size-main-text;
@@ -81,4 +84,8 @@
 }
 .pass {
   margin-top: 10px;
+}
+
+.color_link {
+  color: $main-blue-color;
 }

@@ -4,7 +4,7 @@ import { Input } from '../input';
 
 type InputBlockProps = {
   name: string;
-  text: string;
+  text?: string;
   type: string;
   className: string;
   events?: {

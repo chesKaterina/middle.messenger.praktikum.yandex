@@ -12,7 +12,7 @@ export class UserController {
   async editAvatar(data: any) {
     try {
       this.api.editAvatar(data);
-      router.go('/settings');
+      router.go('/profile');
       setTimeout(() => location.reload(), 500);
     } catch (e: any) {
       console.error(e);
@@ -24,7 +24,7 @@ export class UserController {
       const changedData = await this.api.editUser(data);
       if (changedData) {
           await this.fetchUser();
-          router.go('/settings');
+          router.go('/profile');
       }
     } catch (e: any) {
       console.error(e);
@@ -33,7 +33,7 @@ export class UserController {
   async editPass(data: EditPass) {
     this.api.editPass(data)
       .then(() => {
-        router.go('/settings');
+        router.go('/profile');
       })
       .catch((e) => {
         alert(e.reason)
@@ -43,7 +43,7 @@ export class UserController {
 
   async avatarEdit() {
     try {
-      router.go('/settings/change-avatar');
+      router.go('/profile/change-avatar');
     } catch (e: any) {
       console.error(e);
     }
@@ -51,7 +51,7 @@ export class UserController {
 
   async passEdit() {
     try {
-      router.go('/settings/change-pass');
+      router.go('/profile/change-pass');
     } catch (e: any) {
       console.error(e);
     }
@@ -59,7 +59,7 @@ export class UserController {
 
   async userEdit() {
     try {
-      router.go('/settings/change-profile');
+      router.go('/profile/change-profile');
     } catch (e: any) {
       console.error(e);
     }

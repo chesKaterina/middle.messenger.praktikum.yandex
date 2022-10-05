@@ -303,16 +303,18 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-right: 1px solid #E0DFDF;
 }
 
 .return_img {
-  width: 28px;
+  font-size: 20px;
 }
 
 .profile_form {
   border-bottom: 2px solid #B1B1B1;
   padding: 5px;
   max-width: 50%;
+  margin-bottom: 8px;
   margin-left: auto;
   margin-right: auto;
   font-size: 14px;
@@ -373,6 +375,10 @@ a {
 
 .pass {
   margin-top: 10px;
+}
+
+.color_link {
+  color: #2E64EE;
 }
 
 .btn {
@@ -466,6 +472,21 @@ a {
   line-height: 150%;
   text-decoration: none;
   color: #2E64EE;
+}
+
+.input_pass {
+  text-align: right;
+  font-size: 14px;
+  border: 0;
+}
+
+.btn_pass {
+  width: 50%;
+  margin: auto;
+}
+
+.error_pass {
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=main.css.map */
