@@ -9,6 +9,7 @@ Parcel - сборка проекта,
 Handlebars - шаблонизатор,
 
 Netlify
+
 ### Sprint_3 ###
 
 Настроен роутинг;
@@ -40,4 +41,5 @@ Netlify
 `npm run start` - запуск проекта локально на порту 3000
 
 ## Сссылка на Netlify ##
+
 https://tranquil-moonbeam-2f8b85.netlify.app/
