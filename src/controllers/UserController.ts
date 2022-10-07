@@ -11,6 +11,7 @@ export class UserController {
 
   async editAvatar(data: any) {
     try {
+      console.log(data.get('avatar'))
       this.api.editAvatar(data);
       router.go('/profile');
       setTimeout(() => location.reload(), 500);
@@ -24,7 +25,7 @@ export class UserController {
       const changedData = await this.api.editUser(data);
       if (changedData) {
           await this.fetchUser();
-          router.go('/profile');
+          router.go('/chat');
       }
     } catch (e: any) {
       console.error(e);

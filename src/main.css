@@ -360,7 +360,7 @@ a {
   max-width: 50%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 52px;
+  margin-top: 30px;
   margin-bottom: 20px;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -379,6 +379,20 @@ a {
 
 .color_link {
   color: #2E64EE;
+}
+
+.btn_save {
+  max-width: 280px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+input[type=file] {
+  display: none;
+}
+
+#imageName {
+  color: green;
 }
 
 .btn {

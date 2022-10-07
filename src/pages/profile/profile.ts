@@ -20,13 +20,18 @@ export type User = {
 
 class ProfilePage extends Block {
 
-  init() {
+  protected initChildren(){
     this.children.change_data = new Link({
       events: {
         click: () => {
           const allInputs = document.querySelectorAll('input')
           allInputs.forEach((inp) => inp.classList.remove('disabled_input')
           )
+          const btn = document.getElementById('save_btn') as HTMLDivElement
+          btn?.setAttribute("style", "display: block");
+          const avatarBtn = document.getElementById('changeAvatarBlock') as HTMLDivElement
+          avatarBtn?.setAttribute("style", "display: block;  text-align: center; padding: 0.5%;")
+
         }
       },
       to: '',
@@ -115,15 +120,34 @@ class ProfilePage extends Block {
           if (isValidForm('.form_pass')) { this.onSubmit()}
         }
       },
-      className: 'btn',
+      className: 'btn btn_save',
+      type: 'button'
+    });
+
+    this.children.saveAvatar = new Button({
+      label: 'Сохранить аватар',
+      events: {
+        click: () => {
+          const inputFile = document.getElementById("avatar") as HTMLInputElement;
+          if (inputFile) { this.onSaveAvatar(inputFile)}
+        }
+      },
+      className: 'btn btn_save',
       type: 'button'
     });
 
   }
 
+  onSaveAvatar(avatarObj: any){
+    const data = new FormData();
+    data.append("avatar", (avatarObj as any).files[0]);
+    UserController.editAvatar(data as any);
+  }
+
 
   onSubmit() {
-    const data = validForm('.form');
+
+    const data = validForm('.form_pass');
     UserController.editUser(data as User);
 
   }

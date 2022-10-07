@@ -71,7 +71,7 @@
   max-width: 50%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 52px;
+  margin-top: 30px;
   margin-bottom: 20px;
   font-family: $main-font;
   font-size: $size-main-text;
@@ -88,4 +88,18 @@
 
 .color_link {
   color: $main-blue-color;
+}
+
+.btn_save {
+  max-width: 280px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+#imageName{
+  color:green;
 }
