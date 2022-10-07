@@ -24,8 +24,10 @@ export class UserController {
     try {
       const changedData = await this.api.editUser(data);
       if (changedData) {
-          await this.fetchUser();
-          router.go('/chat');
+        await this.fetchUser();
+          router.go('/profile');
+          setTimeout(() => location.reload(), 500);
+
       }
     } catch (e: any) {
       console.error(e);

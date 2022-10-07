@@ -8,6 +8,7 @@ import { Input } from '../../components/input';
 import Router from '../../utils/Router';
 import { Button } from '../../components/button';
 import { validate, validForm, isValidForm} from '../../utils/validator';
+import { Avatar } from '../../components/avatar';
 
 export type User = {
   email: string;
@@ -21,6 +22,12 @@ export type User = {
 class ProfilePage extends Block {
 
   protected initChildren(){
+
+    if(this.props?.avatar){
+      this.children.avatar = new Avatar({
+        link: `https://ya-praktikum.tech/api/v2/resources${this.props?.avatar}`
+      })
+    }
     this.children.change_data = new Link({
       events: {
         click: () => {
@@ -116,42 +123,26 @@ class ProfilePage extends Block {
     this.children.saveChange = new Button({
       label: 'Сохранить',
       events: {
-        click: () => {
-          if (isValidForm('.form_pass')) { this.onSubmit()}
+        click: () => { if (isValidForm('.form_pass')){this.onSubmit()}
+
         }
       },
       className: 'btn btn_save',
       type: 'button'
     });
-
-    this.children.saveAvatar = new Button({
-      label: 'Сохранить аватар',
-      events: {
-        click: () => {
-          const inputFile = document.getElementById("avatar") as HTMLInputElement;
-          if (inputFile) { this.onSaveAvatar(inputFile)}
-        }
-      },
-      className: 'btn btn_save',
-      type: 'button'
-    });
-
   }
-
-  onSaveAvatar(avatarObj: any){
-    const data = new FormData();
-    data.append("avatar", (avatarObj as any).files[0]);
-    UserController.editAvatar(data as any);
-  }
-
 
   onSubmit() {
-
+    const inputFile = document.getElementById("avatar") as HTMLInputElement;
+    if (inputFile.files) {
+      const data = new FormData();
+      data.append("avatar", (inputFile as any).files[0]);
+      UserController.editAvatar(data as any);
+    }
     const data = validForm('.form_pass');
     UserController.editUser(data as User);
 
   }
-
 
   render() {
     return this.compile(template, { ...this.props });

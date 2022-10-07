@@ -3,8 +3,8 @@ import template from "./avatar.hbs";
 
 interface AvatarProps {
   link: string;
-  events: {
-    click: (evt: Event) => void;
+  events?: {
+    click: () => void;
   };
 }
 
