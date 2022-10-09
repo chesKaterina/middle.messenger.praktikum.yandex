@@ -90,7 +90,7 @@ class ChatPage extends Block {
         click: () => {ChatController.profile();
         }
       },
-      text: 'Профиль',
+      text: 'Профиль >',
       to: '/profile'
     })
     this.children.inputMess = new Input({
