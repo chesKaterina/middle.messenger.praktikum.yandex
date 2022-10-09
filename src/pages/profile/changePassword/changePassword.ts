@@ -8,6 +8,7 @@ import { removeError, setErrorMes, validate, validForm, isValidForm} from '../..
 import { Button } from '../../../components/button';
 import { Link } from '../../../components/link';
 import { InputBlock } from '../../../components/inputBlock';
+import { Avatar } from '../../../components/avatar';
 
 export type EditPass = {
   oldPassword: string;
@@ -18,6 +19,12 @@ export type EditPass = {
 class PasswordPage extends Block {
 
   init() {
+
+    if(this.props?.avatar){
+      this.children.avatar = new Avatar({
+        link: `https://ya-praktikum.tech/api/v2/resources${this.props?.avatar}`
+      })
+    }
 
     this.children.password = new Input({
         className: 'right_box input_pass disabled_text',

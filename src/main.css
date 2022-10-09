@@ -395,6 +395,12 @@ input[type=file] {
   color: green;
 }
 
+.btn_wo_border {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
 .btn {
   display: block;
   width: 100%;

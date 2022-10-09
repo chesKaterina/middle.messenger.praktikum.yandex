@@ -28,7 +28,7 @@ class ProfilePage extends Block {
         link: `https://ya-praktikum.tech/api/v2/resources${this.props?.avatar}`
       })
     }
-    this.children.change_data = new Link({
+    this.children.change_data = new Button({
       events: {
         click: () => {
           const allInputs = document.querySelectorAll('input')
@@ -41,9 +41,8 @@ class ProfilePage extends Block {
 
         }
       },
-      to: '',
-      text: 'Изменить данные',
-      className: 'color_link',
+      label: 'Изменить данные',
+      className: 'btn_wo_border color_link',
     });
 
     this.children.change_password = new Link({
@@ -55,14 +54,12 @@ class ProfilePage extends Block {
       className: 'color_link',
     });
 
-    this.children.out = new Link({
-      className: 'out',
+    this.children.out = new Button({
+      className: 'btn_wo_border out',
       events: {
         click: () => {AuthController.logout()},
       },
-
-      to: '/',
-      text: 'Выйти',
+      label: 'Выйти',
     })
 
     this.children.back = new Link({
