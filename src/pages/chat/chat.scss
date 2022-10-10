@@ -14,14 +14,18 @@
 }
 
 .right_box_chat {
-  position: absolute;
-  /* max-width: 970px; */
-  top: 50%;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  // position: absolute;
+  // /* max-width: 970px; */
+  // top: 50%;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
 
-  text-align: center;
+  // text-align: center;
+  padding-bottom: 10px;
+  max-width: 970px;
+  padding-left: 20px;
+  justify-content: space-between;
   font-family: $main-font;
   font-style: normal;
   font-weight: 400;
@@ -52,7 +56,6 @@
 }
 
 .polygon {
-
   size: 8px 4px;
 }
 
@@ -180,3 +183,88 @@
   background-color: $main-blue-color;
   color: $white-color;
 }
+
+.chat_mess {
+  width: 100%;
+  float: left;
+  display: block;
+  margin-right: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  max-width: 850px;
+  text-align: left;
+  background: $light-line-color;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-family: $main-font;
+  font-size: $size-light-text;
+  font-weight: 400;
+  color: #999999;
+}
+
+.foot_chat {
+  // // position: absolute;
+  // bottom: 0px;
+  // flex-direction: row;
+  // justify-content: space-between;
+  // margin-bottom: 10px;
+  margin: auto;
+  width: 900px;
+}
+
+.send_mess {
+  float: right;
+  display: block;
+  // padding: 10px;
+  border: 0;
+  border-radius: 50%;
+  background-color: $main-blue-color;
+  cursor: pointer;
+
+  max-width: 28px;
+  max-height: 28px;
+  text-align: center;
+
+  font-family: $main-font;
+  font-size: $size-main-text;
+  font-weight: 500;
+  color: $white-color;
+}
+
+.add_chat{
+  display: flex;
+  align-items: stretch;
+  // background-color: $main-blue-color;
+
+}
+
+.footer {
+  align-items: stretch;
+}
+
+.message-outgoing {
+  background: var(--grey-hover);
+  padding: 10px;
+  border-radius: 10px 10px 0;
+  max-width: 400px;
+  align-self: flex-end;
+  text-align: right;
+  margin-left: auto;
+  margin-top: 0.5rem;
+}
+
+.message-incoming {
+  background: var(--grey-search);
+  padding: 10px;
+  border-radius: 0 10px 10px;
+  max-width: 400px;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+// .head_chatName {
+//   flex-direction: row;
+// }
+
+
+

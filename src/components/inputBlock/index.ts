@@ -4,7 +4,7 @@ import { Input } from '../input';
 
 type InputBlockProps = {
   name: string;
-  text: string;
+  text?: string;
   type: string;
   className: string;
   events?: {
@@ -15,7 +15,7 @@ type InputBlockProps = {
 
 export class InputBlock extends Block<InputBlockProps> {
   public constructor(props: InputBlockProps) {
-    super('div', props);
+    super(props);
   }
 
   init() {
@@ -28,6 +28,6 @@ export class InputBlock extends Block<InputBlockProps> {
   }
 
   render() {
-    return this.compile(template, this.props);
+    return this.compile(template, {...this.props});
   }
 }

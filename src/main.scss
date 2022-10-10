@@ -9,10 +9,17 @@ $light-line-color: #EAEAEA;
 $error-color: #EC3F3F;
 
 .error {
-  color: $error-color
+  color: $error-color;
+}
+
+.disabled_input{
+  pointer-events: none;
+  border: 0;
+  text-align: right;
 }
 
 @import './pages/chat/chat';
 @import './pages/error/error';
 @import './pages/profile/profile';
 @import './pages/sign_up/sign_up';
+@import './pages/profile/changePassword/changePassword.scss';
