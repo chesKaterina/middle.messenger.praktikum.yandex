@@ -1,8 +1,9 @@
 // postcss.config.js
 module.exports = {
-    plugins: [
-        require('precss'),
-        require('autoprefixer')
-
-    ]
-}
+  syntax: 'postcss',
+  plugins: [
+    require('autoprefixer'),
+    require('postcss-nested'),
+    require('postcss-normalize')({ forceImport: 'sanitize.css', allowDuplicates: false }),
+  ],
+};
