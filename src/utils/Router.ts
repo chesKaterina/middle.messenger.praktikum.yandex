@@ -37,7 +37,7 @@ class Route {
 
   render() {
     if (!this.block) {
-      this.block = new this.blockClass();
+      this.block = new this.blockClass({});
 
       render(this.query, this.block);
       return;
@@ -47,9 +47,9 @@ class Route {
 
 class Router {
   private static __instance: Router;
-  private routes: Route[] = [];
   private currentRoute: Route | null = null;
   private history = window.history;
+  public routes: Route[] = [];
 
   constructor(private readonly rootQuery: string) {
     if (Router.__instance) {

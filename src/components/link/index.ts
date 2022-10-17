@@ -2,11 +2,11 @@ import Block from '../../utils/Block';
 import template from './link.hbs';
 
 interface LinkProps {
-  events: {
+  events?: {
     click: () => void;
   };
   className?: string;
-  text: string;
+  text?: string;
   to: string;
 }
 export class Link extends Block {

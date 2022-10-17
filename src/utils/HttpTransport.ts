@@ -15,9 +15,13 @@ export default class HttpTransport {
   static API_URL = 'https://ya-praktikum.tech/api/v2';
   protected endpoint: string;
 
-  constructor() {
-      this.endpoint = `${HttpTransport.API_URL}`;
+  constructor(endpoint?: string) {
+    if (endpoint === undefined) {
+      endpoint = '';
+    }
+    this.endpoint = `${HttpTransport.API_URL}${endpoint}`;
   }
+
   public get<Response>(path = '/'): Promise<Response>{
       return this.request(this.endpoint + path);
   }
