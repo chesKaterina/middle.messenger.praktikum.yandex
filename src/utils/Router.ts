@@ -1,9 +1,5 @@
 import Block from './Block';
 
-// export interface BlockConstructable<P = any> {
-//   new(props: P): Block<P>;
-// }
-
 function isEqual(lhs: string, rhs: string): boolean {
   return lhs === rhs;
 }

@@ -22,9 +22,6 @@ export default class HttpTransport {
     this.endpoint = `${HttpTransport.API_URL}${endpoint}`;
   }
 
-  // constructor() {
-  //     this.endpoint = `${HttpTransport.API_URL}`;
-  // }
   public get<Response>(path = '/'): Promise<Response>{
       return this.request(this.endpoint + path);
   }
