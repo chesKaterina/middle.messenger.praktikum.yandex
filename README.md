@@ -42,6 +42,10 @@ Netlify
 
 `npm run start` - запуск проекта локально на порту 3000
 
+## Сссылка на Heroku##
+
+https://practicum-messeger-app.herokuapp.com/
+
 ## Сссылка на Netlify ##
 
 https://tranquil-moonbeam-2f8b85.netlify.app/
